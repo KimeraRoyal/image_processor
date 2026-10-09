@@ -1,0 +1,16 @@
+{
+  "name": "image_processor",
+  "version": "0.1.0",
+  "main": "frontend/javascript/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KimeraRoyal/image_processor.git"
+  },
+  "author": "Kimera Royal",
+  "homepage": "https://www.kimera.world",
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "frontend"
+  ]
+}
