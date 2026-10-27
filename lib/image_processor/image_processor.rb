@@ -8,6 +8,7 @@ class ImageProcessor::Processor
   end
 
   # TODO: Needs to cache images if they're defined multiple times
+  # TODO: Should probably also cache images if they're unchanged between renders
   def define_image(site, url, dest_folder = "")
     url = url.to_s
     if dest_folder != "" && dest_folder.end_with?("/") then
@@ -20,6 +21,16 @@ class ImageProcessor::Processor
     )
     @to_process.push(image_data)
     image_data
+  end
+
+  def get_image_width(site, url)
+    image = Magick::Image.ping("#{site.source}/#{url}").first
+    image.columns
+  end
+
+  def get_image_height(site, url)
+    image = Magick::Image.ping("#{site.source}/#{url}").first
+    image.rows
   end
 
   def process_images(site)
